@@ -6,6 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import ar.edu.unlam.mobile.scaffold.domain.kitty.models.Kitty
 import ar.edu.unlam.mobile.scaffold.ui.components.PhotoCard
@@ -38,4 +39,10 @@ fun Body(kitty: Kitty, action: () -> Unit, modifier: Modifier = Modifier) {
     Column {
         PhotoCard(text = kitty.id, title = kitty.url, imageUrl = kitty.url, action = action, modifier = modifier)
     }
+}
+@Preview
+@Composable
+fun BodyPreview() {
+    val kitty = Kitty("1", "https://example.com/image.jpg", 200, 300)
+    Body(kitty = kitty, action = {})
 }
