@@ -19,6 +19,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import ar.edu.unlam.mobile.scaffold.domain.Models.Screens
 import ar.edu.unlam.mobile.scaffold.ui.components.BottomBar
 import ar.edu.unlam.mobile.scaffold.ui.screens.HomeScreen
 import ar.edu.unlam.mobile.scaffold.ui.screens.SecondaryScreen
@@ -43,7 +44,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MainScreen() {
     // Controller es el elemento que nos permite navegar entre pantallas. Tiene las acciones
-    // para navegar como naviegate y también la información de en dónde se "encuentra" el usuario
+    // para navegar como navigate y también la información de en dónde se "encuentra" el usuario
     // a través del back stack
     val controller = rememberNavController()
     Scaffold(
@@ -56,15 +57,18 @@ fun MainScreen() {
     ) { paddingValue ->
         // NavHost es el componente que funciona como contenedor de los otros componentes que
         // podrán ser destinos de navegación.
-        NavHost(navController = controller, startDestination = "home") {
+        NavHost(
+            navController = controller,
+            startDestination = Screens.Home.route
+        ) {
             // composable es el componente que se usa para definir un destino de navegación.
             // Por parámetro recibe la ruta que se utilizará para navegar a dicho destino.
-            composable("home") {
+            composable(Screens.Home.route) {
                 // Home es el componente en sí que es el destino de navegación.
                 HomeScreen(modifier = Modifier.padding(paddingValue))
             }
             composable(
-                route = "segundo/{id}",
+                route = "${Screens.Secondary.route}/{id}",
                 arguments = listOf(navArgument("id") { type = NavType.IntType }),
             ) { navBackStackEntry ->
                 val id = navBackStackEntry.arguments?.getInt("id") ?: 1

@@ -29,8 +29,8 @@ fun BottomBar(controller: NavHostController) {
             },
         )
         NavigationBarItem(
-            selected = navBackStackEntry?.destination?.hierarchy?.any { it.route == "segundo" } == true,
-            onClick = { controller.navigate("segundo/667867895") },
+            selected = navBackStackEntry?.destination?.hierarchy?.any { it.route == "secondary" } == true,
+            onClick = { controller.navigate("secondary/667867895") },
             icon = {
                 Icon(
                     imageVector = Icons.Default.AccountBox,
