@@ -17,10 +17,10 @@ fun SecondaryScreen(
         Text(text = "Hola soy la pantalla secundaria $id")
         KittyCard(
             kitty = Kitty(
-                        id = "$id",
-                        url = "https://img.freepik.com/foto-gratis/cerrar-lindo-gato-interior_23-2148882585.jpg",
-                        width = 200,
-                        height = 300,
+                id = "$id",
+                url = "https://img.freepik.com/foto-gratis/cerrar-lindo-gato-interior_23-2148882585.jpg",
+                width = 200,
+                height = 300,
             ),
         )
         Button(onClick = { controller.navigate("home") }) {
