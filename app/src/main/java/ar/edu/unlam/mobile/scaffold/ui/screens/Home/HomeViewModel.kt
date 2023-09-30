@@ -25,33 +25,33 @@ data class HomeUIState(
 
 @HiltViewModel
 class HomeViewModel
-    @Inject
-    constructor(val kittyGetter: KittyGetter) : ViewModel() {
-        // Mutable State Flow contiene un objeto de estado mutable. Simplifica la operación de actualización de
-        // información y de manejo de estados de una aplicación: Cargando, Error, Éxito.
-        // (https://developer.android.com/kotlin/flow/stateflow-and-sharedflow)
-        // _Kitty State es el estado del componente "Kitty" inicializado como "Cargando"
-        private val _kittyState = MutableStateFlow(KittyUIState.Loading)
+@Inject
+constructor(val kittyGetter: KittyGetter) : ViewModel() {
+    // Mutable State Flow contiene un objeto de estado mutable. Simplifica la operación de actualización de
+    // información y de manejo de estados de una aplicación: Cargando, Error, Éxito.
+    // (https://developer.android.com/kotlin/flow/stateflow-and-sharedflow)
+    // _Kitty State es el estado del componente "Kitty" inicializado como "Cargando"
+    private val _kittyState = MutableStateFlow(KittyUIState.Loading)
 
-        // Ui State es el estado general del view model.
-        private val _uiState =
-            MutableStateFlow(
-                HomeUIState(_kittyState.value),
-            )
+    // Ui State es el estado general del view model.
+    private val _uiState =
+        MutableStateFlow(
+            HomeUIState(_kittyState.value),
+        )
 
-        // UI expone el estado anterior como un Flujo de Estado de solo lectura.
-        // Esto impide que se pueda modificar el estado desde fuera del ViewModel.
-        val uiState = _uiState.asStateFlow()
+    // UI expone el estado anterior como un Flujo de Estado de solo lectura.
+    // Esto impide que se pueda modificar el estado desde fuera del ViewModel.
+    val uiState = _uiState.asStateFlow()
 
-        init {
-            getKitty()
-        }
+    init {
+        getKitty()
+    }
 
-        fun getKitty() {
-            viewModelScope.launch {
-                kittyGetter.getKitty().collect {
-                    _uiState.value = HomeUIState(KittyUIState.Success(it))
-                }
+    fun getKitty() {
+        viewModelScope.launch {
+            kittyGetter.getKitty().collect {
+                _uiState.value = HomeUIState(KittyUIState.Success(it))
             }
         }
     }
+}
