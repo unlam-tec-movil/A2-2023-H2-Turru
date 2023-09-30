@@ -7,9 +7,9 @@ import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 class KittyDefaultRepository
-    @Inject
-    constructor(val networkRepository: KittyNetworkRepository) : KittyRepository {
-        override suspend fun getKitty(): Flow<Kitty> {
-            return this.networkRepository.getRandomKitty().map { it.toKitty() }
-        }
+@Inject
+constructor(val networkRepository: KittyNetworkRepository) : KittyRepository {
+    override suspend fun getKitty(): Flow<Kitty> {
+        return this.networkRepository.getRandomKitty().map { it.toKitty() }
     }
+}
