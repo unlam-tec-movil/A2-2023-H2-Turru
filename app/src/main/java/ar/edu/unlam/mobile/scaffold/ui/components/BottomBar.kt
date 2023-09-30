@@ -33,8 +33,8 @@ fun BottomBar(controller: NavHostController) {
             label = { Text(text = "Mis Rutinas") },
         )
         NavigationBarItem(
-            selected = navBackStackEntry?.destination?.hierarchy?.any { it.route == "secondary" } == true,
-            onClick = { controller.navigate("secondary/667867895") },
+            selected = navBackStackEntry?.destination?.hierarchy?.any { it.route == Screens.SearchExercise.route } == true,
+            onClick = { controller.navigate(Screens.SearchExercise.route) },
             icon = {
                 Icon(
                     imageVector = Icons.Default.Search,
