@@ -13,14 +13,17 @@ import ar.edu.unlam.mobile.scaffold.ui.screens.Home.HomeScreen
 import ar.edu.unlam.mobile.scaffold.ui.screens.SecondaryScreen
 
 @Composable
-fun NavigationComponent(navigationCotroller: NavHostController, modifier: Modifier = Modifier) {
+fun NavigationComponent(
+    navigationCotroller: NavHostController,
+    modifier: Modifier = Modifier,
+) {
     NavHost(
         navController = navigationCotroller,
         startDestination = Screens.Home.route,
-        modifier = modifier
+        modifier = modifier,
     ) {
         composable(Screens.Home.route) {
-                HomeScreen(modifier = modifier)
+            HomeScreen(modifier = modifier)
         }
         composable(
             route = "${Screens.Secondary.route}/{id}",

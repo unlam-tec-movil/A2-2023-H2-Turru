@@ -15,7 +15,6 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import ar.edu.unlam.mobile.scaffold.domain.Models.Screens
 
-
 @Composable
 fun BottomBar(controller: NavHostController) {
     val navBackStackEntry by controller.currentBackStackEntryAsState()
@@ -43,7 +42,6 @@ fun BottomBar(controller: NavHostController) {
                 )
             },
             label = { Text(text = "Ejercicios") },
-
         )
     }
 }

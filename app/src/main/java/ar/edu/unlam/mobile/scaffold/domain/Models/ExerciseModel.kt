@@ -8,7 +8,7 @@ data class Exercise(
     val muscle: String,
     val equipment: String,
     val difficulty: String,
-    val instructions: String
+    val instructions: String,
 ) {
     constructor(dto: ExerciseDTO) : this(
         dto.name,
@@ -16,6 +16,6 @@ data class Exercise(
         dto.muscle,
         dto.equipment,
         dto.difficulty,
-        dto.instructions
+        dto.instructions,
     )
 }

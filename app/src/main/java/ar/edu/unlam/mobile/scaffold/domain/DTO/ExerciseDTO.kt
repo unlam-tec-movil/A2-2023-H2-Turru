@@ -6,6 +6,5 @@ data class ExerciseDTO(
     val muscle: String,
     val equipment: String,
     val difficulty: String,
-    val instructions: String
+    val instructions: String,
 )
-
