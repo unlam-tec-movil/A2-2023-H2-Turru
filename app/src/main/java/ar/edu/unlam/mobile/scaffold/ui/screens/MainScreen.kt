@@ -13,6 +13,7 @@ fun MainScreen() {
     // Controller es el elemento que nos permite navegar entre pantallas. Tiene las acciones
     // para navegar como navigate y también la información de en dónde se "encuentra" el usuario
     // a través del back stack
+    //Se agrega un comentario de ejemplo
     val controller = rememberNavController()
     Scaffold(
         bottomBar = { BottomBar(controller = controller) },
